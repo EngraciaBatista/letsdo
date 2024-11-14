@@ -60,7 +60,7 @@ const displayUsers = async (req, res, next) => {
         return res.status().json({message: "User does not exist. Please create an account."});
       }
 
-      if (existingUser.password !== password) {
+      if (existingUser.hashed_password !== password) {
         return res.status.json({message: "Invalid password. Please try again."});
       }
       res.json({ message: "Successfully logged in!", userID: existingUser.id })

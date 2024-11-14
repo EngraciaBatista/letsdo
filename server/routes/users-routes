@@ -13,11 +13,11 @@ usersControllers.createUser);
 
 router.get("/", usersControllers.displayUsers);
 
-router.post("/login", [
+/* router.post("/login", [
     check("email").isEmail(),
     check("password").notEmpty()
 ],
-usersControllers.login);
+usersControllers.login); */
 
 
 module.exports = router;

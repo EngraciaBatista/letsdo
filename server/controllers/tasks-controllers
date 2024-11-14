@@ -1,0 +1,59 @@
+const { validationResult } = require("express-validator");
+const Task = require("../models/Task");
+
+const displayTasks = async (req, res, next) => {
+  let tasks;
+
+  try {
+    tasks = await Task.find({});
+  } catch (err) {
+    return res.status(500).json({ message: "Unable to retrieve tasks, please try again later." });
+  }
+
+  res.status(200).json({
+    tasks: tasks.map(task => task.toObject({ getters: true }))
+  });
+};
+
+const createTask = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ message: "Invalid input, please check the data provided." });
+  }
+
+  const { title, category, priority } = req.body;
+
+  const newTask = new Task({
+    title,
+    category,
+    priority
+  });
+
+  try {
+    await newTask.save();
+  } catch (err) {
+    return res.status(500).json({ message: "Unable to create a new task, please try again." });
+  }
+
+  res.status(201).json({ task: newTask });
+};
+
+const displayTasksByCategory = async (req, res, next) => {
+    const { category } = req.params;
+    try {
+        tasks = await Task.find({ category: category});
+      } catch (err) {
+        return res.status(500).json({ message: "Unable to retrieve tasks, please try again later." });
+      }
+    
+      res.status(200).json({
+        tasks: tasks.map(task => task.toObject({ getters: true }))
+      });
+}
+
+exports.displayTasks = displayTasks;
+exports.createTask = createTask;
+exports.displayTasksByCategory = displayTasksByCategory;
+
+
+
