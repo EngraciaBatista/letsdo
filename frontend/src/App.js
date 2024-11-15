@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import Footer from './Footer';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Footer from "./Footer";
 
 function App() {
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState("");
   const [taskList, setTaskList] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [currentTaskIndex, setCurrentTaskIndex] = useState(null);
@@ -13,9 +13,9 @@ function App() {
   }, []);
 
   const addTask = () => {
-    if (task.trim() !== '') {
+    if (task.trim() !== "") {
       setTaskList([...taskList, task]);
-      setTask('');
+      setTask("");
     }
   };
 
@@ -35,7 +35,7 @@ function App() {
       index === currentTaskIndex ? task : item
     );
     setTaskList(updatedTaskList);
-    setTask('');
+    setTask("");
     setIsEditing(false);
     setCurrentTaskIndex(null);
   };
@@ -54,9 +54,13 @@ function App() {
             onChange={(e) => setTask(e.target.value)}
           />
           {isEditing ? (
-            <button className="update-button" onClick={updateTask}>Update</button>
+            <button className="update-button" onClick={updateTask}>
+              Update
+            </button>
           ) : (
-            <button className="add-button" onClick={addTask}>Add</button>
+            <button className="add-button" onClick={addTask}>
+              Add
+            </button>
           )}
         </div>
         <div className="task-container">
@@ -65,8 +69,18 @@ function App() {
               {taskList.map((task, index) => (
                 <li key={index}>
                   <span>{task}</span>
-                  <button className="edit-button" onClick={() => editTask(index)}>Edit</button>
-                  <button className="delete-button" onClick={() => deleteTask(index)}>Delete</button>
+                  <button
+                    className="edit-button"
+                    onClick={() => editTask(index)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="delete-button"
+                    onClick={() => deleteTask(index)}
+                  >
+                    Delete
+                  </button>
                 </li>
               ))}
             </ul>
