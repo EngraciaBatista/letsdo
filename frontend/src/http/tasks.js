@@ -29,7 +29,7 @@ export const getTasks = async () => {
 };
 
 //router.post("/get/products/search", getSearchedProducts);
-export const getFilteredProducts = async (skip, limit, filters = {}) => {
+export const getFilteredTasks = async (skip, limit, filters = {}) => {
   const data = {
     limit,
     skip,

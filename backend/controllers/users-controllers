@@ -40,7 +40,7 @@ const displayUsers = async (req, res, next) => {
   });
 };
 
-exports.findUserById = async (req, res, next, id) => {
+findUserById = async (req, res, next, id) => {
   try {
     const user = await User.findById(id).exec();
     if (!user) {
@@ -57,7 +57,7 @@ exports.findUserById = async (req, res, next, id) => {
   }
 };
 
-exports.updateUser = async (req, res) => {
+updateUser = async (req, res) => {
   try {
     // Use findByIdAndUpdate instead of findOneAndUpdate for simplicity and clarity
     const user = await User.findByIdAndUpdate(
@@ -116,3 +116,5 @@ exports.updateUser = async (req, res) => {
 
 exports.createUser = createUser;
 exports.displayUsers = displayUsers;
+exports.findUserById = findUserById;
+exports.updateUser = updateUser;

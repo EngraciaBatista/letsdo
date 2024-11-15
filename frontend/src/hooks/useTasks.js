@@ -1,6 +1,6 @@
 // hooks/useProducts.js
 import { useState, useEffect, useCallback } from "react";
-import { getFilteredProducts } from "../http/product";
+import { getFilteredTasks } from "../http/tasks";
 
 const useTasks = (initialFilters, initialSkip = 0, initialLimit = 6) => {
   const [filters, setFilters] = useState(initialFilters);
