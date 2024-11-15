@@ -13,6 +13,15 @@ router.post("/create", [
     tasksControllers.createTask
 );
 
+router.patch("/:taskID", [
+    check("title").notEmpty(),
+    check("category").notEmpty(),
+    check("priority").isIn(["High", "Medium", "Low"])
+    ],
+    tasksControllers.editTask
+);
+
+router.delete("/:taskID", tasksControllers.deleteTask);
 
 router.get("/", tasksControllers.displayTasks);
 
