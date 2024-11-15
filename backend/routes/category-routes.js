@@ -8,7 +8,7 @@ const {
   getCategory,
   deleteCategory,
 } = require("../controllers/category");
-const { findUserById } = require("../controllers/user");
+const { findUserById } = require("../controllers/users-controllers");
 
 const {
   requireSignin,
