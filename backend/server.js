@@ -1,26 +1,47 @@
 const mongoose = require("mongoose");
 const express = require("express");
-const bodyParser = require("body-parser");
-const usersRoutes = require("./routes/users-routes");
-const tasksRoutes = require("./routes/tasks-routes"); 
-const cors = require('cors');
+const morgan = require("morgan");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const usersRoutes = require("./routes/users-routes.js");
+const tasksRoutes = require("./routes/tasks-routes.js");
+const authRoutes = require("./routes/auth-routes.js");
+const categoryRoutes = require("./routes/category-routes.js");
+require("dotenv").config();
+
 const app = express();
 
-app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(cors({ origin: "*" }));
+
+app.use((req, res, next) => {
+  console.log("CORS applied to:", req.method, req.url);
+  next();
+});
+app.use(morgan("dev"));
+app.use(cookieParser());
+
+// Using built-in body parsers
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// Serve static files (like images) from the 'public/uploads' directory
+app.use("/uploads", express.static("public/uploads"));
+
+// Routes
 app.use("/api/users", usersRoutes);
 app.use("/api/tasks", tasksRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/categories", categoryRoutes);
 
-app.get('/', (req, res) => {
-  res.send('Backend is running');
-});
+PORT = 8000;
 
-mongoose.connect("mongodb+srv://gail:255650@cluster0.qod2v.mongodb.net/LetsDo?retryWrites=true&w=majority&appName=Cluster0")
+mongoose
+  .connect(process.env.DB_URI)
   .then(() => {
-    app.listen(8080, () => {
-      console.log("Server is running on http://localhost:8080");
+    app.listen(PORT, () => {
+      console.log("Server is running on http://localhost:8000");
     });
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err);
   });

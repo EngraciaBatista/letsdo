@@ -1,0 +1,17 @@
+.custom-modal {
+  /* Add any custom styles you want for the modal */
+  border-radius: 10px;
+}
+
+.modal-content {
+  /* Style for modal content */
+  padding: 20px;
+  font-size: 16px;
+  color: #333; /* Text color */
+}
+
+/* Adjust Ant Design modal buttons styles if needed */
+.ant-modal-footer {
+  display: flex;
+  justify-content: space-between;
+}

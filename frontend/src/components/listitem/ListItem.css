@@ -1,0 +1,78 @@
+/* ListItem.css */
+.list-item {
+  width: calc(100% - 20px);
+  margin: 10px auto;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0 0 0 1px;
+  padding: 16px; /* Add padding to the card */
+  background-color: #fff;
+  display: flex; /* Make the card a flex container */
+  justify-content: space-between; /* Space out the info and button containers */
+  align-items: center; /* Center items vertically */
+}
+
+.info-container {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  flex-grow: 1; /* Allow the info container to take available space */
+}
+
+.task-title {
+  flex-grow: 1; /* Allow the title to take available space */
+  margin: 0 10px; /* Add margin for spacing */
+}
+
+.button-container {
+  display: flex;
+  align-items: center; /* Align buttons vertically */
+  margin-left: 10px; /* Optional: Add space between title and buttons */
+}
+
+.tick {
+  padding: 10px;
+}
+
+.tick path {
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 32px;
+}
+
+/* ListItem.css */
+.list-item {
+  width: calc(100% - 20px);
+  margin: 10px auto;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0 0 0 1px;
+  padding: 16px; /* Add padding to the card */
+  background-color: #fff;
+  display: flex; /* Make the card a flex container */
+  justify-content: space-between; /* Space out the info and button containers */
+  align-items: center; /* Center items vertically */
+}
+
+.info-container {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  flex-grow: 1; /* Allow the info container to take available space */
+}
+
+.task-title {
+  flex-grow: 1; /* Allow the title to take available space */
+  margin: 0 10px; /* Add margin for spacing */
+}
+
+.button-container {
+  display: flex; /* Ensure this is a flex container */
+  align-items: center; /* Align buttons vertically */
+  margin-left: 10px; /* Optional: Add space between title and buttons */
+}
+
+/* Ensure the button styles are defined here if specific to ListItem */
+.button-container button,
+.button-container .ant-btn {
+  margin: 0 5px; /* Keep existing button margin */
+}
+
+/* Additional button-specific styles can go here */

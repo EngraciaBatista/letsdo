@@ -1,0 +1,16 @@
+.tick {
+  padding: 10px;
+  display: inline-block; /* Ensure it behaves as an inline element */
+}
+
+.tick path {
+  fill: none; /* Ensures paths have no fill */
+  stroke: #000; /* Black stroke color */
+  stroke-miterlimit: 10; /* Control the appearance of corners */
+  stroke-width: 32px; /* Width of the stroke */
+}
+
+.tick circle {
+  stroke: #000; /* Stroke color for the circle */
+  stroke-width: 32px; /* Width of the stroke for the circle */
+}
