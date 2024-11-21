@@ -34,4 +34,4 @@ root.render(
   </React.StrictMode>
 );
 
-console.log("test");
+console.log("test2");
